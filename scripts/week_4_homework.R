@@ -65,3 +65,11 @@ surveys_avg_weight
 surveys_avg_weight <- surveys_avg_weight %>%
   mutate(above_average = weight > avg_weight)
 surveys_avg_weight
+
+## Bonus ----- 
+## Making a mini table with summarize
+mini_avg_weight <- surveys %>%
+  filter(!is.na(weight)) %>%
+  group_by(species_id, sex) %>%
+  summarize(avg_weight = mean(weight))
+mini_avg_weight
