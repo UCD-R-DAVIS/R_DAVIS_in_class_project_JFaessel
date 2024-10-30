@@ -73,6 +73,7 @@ left_join(surveys, tail %>%
 
 
 # Pivot -----
+# "id_cols" define columns whose values should uniquely identify each row in the data. "names_from" defines which column(s) to get the name of the output columns, and "values_from" does the same for cell values.
 
 surveys_mz <- surveys %>% 
   filter(!is.na(weight)) %>% 
@@ -82,9 +83,10 @@ surveys_mz
 
 ## Pivot_wider makes data with more columns
 
-surveys_mz %>% 
+wide_survey <- surveys_mz %>% 
   pivot_wider(id_cols = 'genus',
               names_from = 'plot_id', values_from = 'mean_weight' )
+wide_survey
 
 ## pivot_longer makes data with more rows
 surveys_long <- wide_survey %>% 
