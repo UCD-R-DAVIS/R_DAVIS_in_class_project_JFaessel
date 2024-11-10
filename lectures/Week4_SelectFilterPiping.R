@@ -4,6 +4,8 @@ surveys <- read_csv("data/portal_data_joined.csv")
 str(surveys)
 
 # Select, Filter, and Pipes -----
+## |> and %>% are equivalent pipes!
+
 ## Select: Allows you to select certain columns, Filter: [...] by columns
 month_day_year <- select(surveys, month, day, year)
 ## filtering by equals
